@@ -1,38 +1,45 @@
+<div align="center">
+
 # 🔍 Website Audit Platform
 
-> Analyze any website's technical health, SEO readiness, accessibility, and mobile responsiveness — in seconds.
+**Analyze any website's technical health, SEO readiness, accessibility, and mobile responsiveness — in seconds.**
+
+![Python](https://img.shields.io/badge/python-3.9+-8A6FE0?style=flat-square&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/fastapi-backend-8A6FE0?style=flat-square&logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/react-frontend-8A6FE0?style=flat-square&logo=react&logoColor=white)
+![Playwright](https://img.shields.io/badge/playwright-crawler-8A6FE0?style=flat-square&logo=playwright&logoColor=white)
+![SQLite](https://img.shields.io/badge/sqlite-database-8A6FE0?style=flat-square&logo=sqlite&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-8A6FE0?style=flat-square)
 
 ![Platform Preview](./screenshots/dashboard.png)
 
-Built with **FastAPI** · **React** · **BeautifulSoup4** · **Playwright** · **SQLite**
+</div>
 
 ---
 
-## 📌 What It Does
+## 📌 what it does
 
-Paste a URL. Get a full website health report — instantly.
+paste a url, get a full website health report — instantly.
 
-Website Audit Platform crawls a website and runs it through four specialized audit engines, then generates a scored, human-readable report covering what's working, what's broken, and what to fix.
-
-No configuration required. No accounts. Just a URL.
+Website Audit Platform crawls a site and runs it through four specialized audit engines, then generates a scored, human-readable report covering what's working, what's broken, and what to fix. no configuration, no accounts, just a url.
 
 ---
 
-## 🖥️ Screenshots
+## 🖥️ screenshots
 
 | Home | Audit Report |
-|------|-------------|
+|:---:|:---:|
 | ![Home](./screenshots/home.png) | ![Report](./screenshots/report.png) |
 
 ---
 
-## ⚙️ How It Works
+## ⚙️ how it works
 
 ```
 URL Input
    │
    ▼
-Crawler Engine (Static → Playwright fallback for SPAs)
+Crawler Engine (static → Playwright fallback for SPAs)
    │
    ▼
 Content Extraction
@@ -52,18 +59,18 @@ Scoring Engine (0–100 per category)
 Interactive Report Dashboard
 ```
 
-### Crawling Strategy
+**crawling strategy** — a two-tier approach:
 
-The platform uses a **two-tier crawling approach**:
-
-1. **Static crawl** (Requests + BeautifulSoup4) — fast, lightweight, handles most sites
-2. **Playwright fallback** — automatically triggered for JavaScript-heavy sites (React, Vue, Angular, SPAs)
+1. **static crawl** (Requests + BeautifulSoup4) — fast, lightweight, handles most sites
+2. **Playwright fallback** — auto-triggered for JS-heavy sites (React, Vue, Angular, SPAs)
 
 ---
 
-## 📊 Audit Categories
+## 📊 audit categories
 
-### 🛡️ Technical Health
+<details open>
+<summary><b>🛡️ technical health</b></summary>
+
 | Check | Description |
 |-------|-------------|
 | HTTPS | Verifies secure connection |
@@ -72,7 +79,11 @@ The platform uses a **two-tier crawling approach**:
 | Broken Links | Detects broken homepage links |
 | Resource Usage | Audits request count and types |
 
-### 🔎 SEO Readiness
+</details>
+
+<details open>
+<summary><b>🔎 seo readiness</b></summary>
+
 | Check | Description |
 |-------|-------------|
 | Title Tag | Presence and optimal length (50–60 chars) |
@@ -82,7 +93,11 @@ The platform uses a **two-tier crawling approach**:
 | Robots.txt | Accessibility and configuration |
 | Sitemap.xml | Presence and validity |
 
-### ♿ Accessibility
+</details>
+
+<details open>
+<summary><b>♿ accessibility</b></summary>
+
 | Check | Description |
 |-------|-------------|
 | Image Alt Text | All images have descriptive alt attributes |
@@ -90,7 +105,11 @@ The platform uses a **two-tier crawling approach**:
 | Form Labels | All form inputs are labeled |
 | Language Declaration | `lang` attribute on `<html>` |
 
-### 📱 Mobile Responsiveness
+</details>
+
+<details open>
+<summary><b>📱 mobile responsiveness</b></summary>
+
 | Check | Description |
 |-------|-------------|
 | Viewport Meta Tag | Correct viewport configuration |
@@ -98,16 +117,16 @@ The platform uses a **two-tier crawling approach**:
 | Media Queries | Presence of responsive breakpoints |
 | Legacy Issues | Detection of fixed-width or mobile-unfriendly patterns |
 
+</details>
+
 ---
 
-## 📈 Scoring
+## 📈 scoring
 
-Each category receives a **score out of 100**, weighted by the severity of issues found.
-
-An **overall website health score** is computed as a weighted average across all four categories.
+each category gets a score out of 100, weighted by issue severity. an overall health score is computed as a weighted average across all four.
 
 | Score Range | Rating |
-|-------------|--------|
+|:---:|:---|
 | 90–100 | Excellent ✅ |
 | 70–89 | Good 🟡 |
 | 50–69 | Needs Work 🟠 |
@@ -115,7 +134,7 @@ An **overall website health score** is computed as a weighted average across all
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ tech stack
 
 | Layer | Technologies |
 |-------|-------------|
@@ -126,38 +145,30 @@ An **overall website health score** is computed as a weighted average across all
 
 ---
 
-## 🚀 Getting Started
+## 🚀 getting started
 
-### Prerequisites
-
+### prerequisites
 - Python 3.9+
 - Node.js 18+
 
-### Backend Setup
+### backend setup
 
 ```bash
-# Clone the repo
 git clone https://github.com/sammmiksha/website-audit-platform.git
 cd website-audit-platform
 
-# Create virtual environment
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
-# Install dependencies
 pip install -r requirements.txt
-
-# Install Playwright browsers
 playwright install chromium
 
-# Start the API server
 uvicorn main:app --reload
 ```
 
-API will be available at `http://localhost:8000`  
-Swagger docs at `http://localhost:8000/docs`
+API → `http://localhost:8000` · Swagger docs → `http://localhost:8000/docs`
 
-### Frontend Setup
+### frontend setup
 
 ```bash
 cd frontend
@@ -165,11 +176,11 @@ npm install
 npm run dev
 ```
 
-App will be available at `http://localhost:5173`
+App → `http://localhost:5173`
 
 ---
 
-## 📁 Project Structure
+## 📁 project structure
 
 ```
 website-audit-platform/
@@ -182,9 +193,9 @@ website-audit-platform/
 │   │   ├── technical.py        # Technical health checks
 │   │   ├── seo.py              # SEO audit engine
 │   │   ├── accessibility.py    # Accessibility checks
-│   │   └── mobile.py          # Mobile responsiveness checks
+│   │   └── mobile.py           # Mobile responsiveness checks
 │   ├── scoring.py              # Score computation logic
-│   └── models.py              # SQLAlchemy models
+│   └── models.py               # SQLAlchemy models
 │
 └── frontend/
     ├── src/
@@ -197,45 +208,50 @@ website-audit-platform/
 
 ---
 
-## ✨ Key Features
+## ✨ key features
 
-- **Dual-mode crawling** — static + Playwright for full SPA support
-- **Four-category scoring** — actionable numbers, not vague grades
-- **Audit history** — all past reports stored and accessible
-- **Human-readable output** — designed for developers and non-technical users alike
-- **Fast analysis** — most audits complete in under 10 seconds
+- **dual-mode crawling** — static + Playwright for full SPA support
+- **four-category scoring** — actionable numbers, not vague grades
+- **audit history** — all past reports stored and accessible
+- **human-readable output** — built for developers and non-technical users alike
+- **fast analysis** — most audits complete in under 10 seconds
 
 ---
 
-## 🔮 Planned Improvements
+## 🔮 planned improvements
 
-- [ ] Multi-page crawling (full site analysis, not just homepage)
+- [ ] multi-page crawling (full site analysis, not just homepage)
 - [ ] PDF report export
-- [ ] Historical score tracking over time
-- [ ] Competitor comparison mode
-- [ ] Scheduled / automated audits
-- [ ] Deeper performance metrics (LCP, CLS, FID)
+- [ ] historical score tracking over time
+- [ ] competitor comparison mode
+- [ ] scheduled / automated audits
+- [ ] deeper performance metrics (LCP, CLS, FID)
 
 ---
 
-## 🧠 What I Learned
+## 🧠 what i learned
 
-Building this project gave me hands-on experience with:
+building this gave me hands-on experience with:
 
-- Web crawling strategies and HTML parsing at scale
+- web crawling strategies and HTML parsing at scale
 - FastAPI application architecture and async endpoints
 - SEO fundamentals and how search engines evaluate pages
 - WCAG accessibility standards
-- Responsive design detection heuristics
-- Full-stack integration: React frontend ↔ FastAPI backend ↔ SQLite
+- responsive design detection heuristics
+- full-stack integration: React ↔ FastAPI ↔ SQLite
 
 ---
 
-## 📬 Contact
+<div align="center">
 
-**Samiksha Patil**  
-[GitHub](https://github.com/sammmiksha) · [LinkedIn](https://linkedin.com/in/sammmikshapatil) · [Portfolio](https://samiksha-pedenekar.netlify.app)
+## 📬 contact
 
----
+**Samiksha Patil**
 
-*Built with React & FastAPI · © 2026 Website Audit Platform*
+[![GitHub](https://img.shields.io/badge/GitHub-sammmiksha-8A6FE0?style=flat-square&logo=github&logoColor=white)](https://github.com/sammmiksha)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-sammmikshapatil-8A6FE0?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/sammmikshapatil)
+[![Portfolio](https://img.shields.io/badge/Portfolio-visit-8A6FE0?style=flat-square&logo=vercel&logoColor=white)](https://samiksha-pedenekar.netlify.app)
+
+*built with React & FastAPI · © 2026 Website Audit Platform*
+
+</div>
