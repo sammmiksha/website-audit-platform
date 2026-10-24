@@ -25,6 +25,10 @@ app.add_middleware(
 
 audit_engine = AuditEngine()
 
+@app.get("/health", status_code=status.HTTP_200_OK)
+def health_check():
+    return {"status": "healthy"}
+
 @app.post("/api/audit", response_model=AuditReportResponse, status_code=status.HTTP_201_CREATED)
 def trigger_audit(request: AuditRequest, db: Session = Depends(get_db)):
     """
